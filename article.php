@@ -54,9 +54,25 @@ class Article{
     {
         return $this->stock;
     }
-
 }
-function displayArticle(Article $article)
-{
-    echo $article->getId() .' '. $article->getNom() .' '. $article->getDescription() . ' ' . $article->getPrix() . ' ' . $article->getImage() . ' ' . $article->getPoids() . ' ' . $article->getStock() .' ' . $article->getDisponible() . '<br>';
+
+class Pantalon extends Article{
+    private $taille;
+    private $couleur;
+
+    public function getTaille()
+    {
+        return $this->taille;
+    }
+
+    public function getCouleur()
+    {
+        return $this->couleur;
+    }
+
+    public function __construct($id, $nom, $description, $prix, $poids, $stock, $disponible,$image, $taille,$couleur){
+        parent::__construct($id, $nom, $description, $prix, $poids, $stock, $disponible,$image);
+        $this->taille=$taille;
+        $this->couleur=$couleur;
+    }
 }

@@ -48,6 +48,3 @@ public function __construct($id,$first_name,$last_name,$adress,$zip,$city){
         return $this->zip;
     }
 }
-function displayClient(Client $client){
-    echo $client->getId() . ' ' . $client->getFirstName() . ' ' . $client->getLastName() . ' ' . $client->getAdress() . ' ' . $client->getZip() . ' ' . $client->getCity() . '<br>';
-}

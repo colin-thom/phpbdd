@@ -1,5 +1,6 @@
 <?php
-include "article.php";
+include_once "article.php";
+include_once "function.php";
 
 class Catalogue
 {
@@ -13,8 +14,14 @@ class Catalogue
         }
         $req=$bdd->query('SELECT * from products');
         while ($donnees=$req->fetch()){
-            $art=new Article($donnees['id'], $donnees['name'], $donnees['description'], $donnees['price'], $donnees['picture'], $donnees['weight'], $donnees['quantity'], $donnees['available']);
-            array_push($this->catalogue, $art);
+            if($donnees['category_id']!=2){
+                $art=new Article($donnees['id'], $donnees['name'], $donnees['description'], $donnees['price'], $donnees['picture'], $donnees['weight'], $donnees['quantity'], $donnees['available']);
+                array_push($this->catalogue, $art);
+            }
+            else{
+                $art=new Pantalon($donnees['id'], $donnees['name'], $donnees['description'], $donnees['price'], $donnees['picture'], $donnees['weight'], $donnees['quantity'], $donnees['available'], $donnees['length'], $donnees['color']);
+                array_push($this->catalogue, $art);
+            }
         }
     }
     public function displayCat(){
