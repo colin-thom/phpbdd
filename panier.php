@@ -1,26 +1,26 @@
 <?php
-
+include_once "catalogue.php";
 
 class Panier
 {
-public $panier=array();
-public function __construct($id_article)
-{
-    try {
-        $bdd = new PDO('mysql:host=localhost;dbname=php_bdd_query_playground', 'root', 'root');
-    } catch (PDOException $e) {
-        echo $e->getMessage();
+    private $panier = array();
+    public function __construct($list_produit)
+    {
+        $this->panier = $list_produit;
+
     }
-    $req = $bdd->query('SELECT * FROM order_product');
-    while ($donnees = $req->fetch()) {
-        if ($donnees['product_id'] == $id_article) {
-            array_push($this->panier, $donnees);
+
+    public function getPanier()
+    {
+        return $this->panier;
+    }
+
+    public function diplay_panier()
+    {
+        foreach ($this->panier as $article) {
+            echo $article['name'] . ' ' . $article['price'] . ' ' . $article['picture'] . ' ' . $article['weight'] .  ' ' . $article['quantity'] . ' ' . $article['available'] . '<br>';
         }
     }
 }
-    public function add($id_article){
-        if ($id_article==$donnees['product_id'])
-    }
-}
-$pa=new Panier(1);
-var_dump($pa);
+
+
