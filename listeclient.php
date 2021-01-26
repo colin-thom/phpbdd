@@ -6,7 +6,7 @@ class ListeClients
     public $listeclient=array();
     public function __construct(){
         try{
-            $bdd = new PDO('mysql:host=localhost;dbname=bdd_dump', 'root', 'root');
+            $bdd = new PDO('mysql:host=localhost;dbname=thomas_db', 'thomas', 'vx3wcejfb');
         }
         catch(PDOException $e){
             echo $e->getMessage();
