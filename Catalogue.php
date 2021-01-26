@@ -39,7 +39,7 @@ class Catalogue
     }
 
     public function displayCat()
-    {
+    {var_dump($this->catalogue);
         foreach ($this->catalogue as $article) {
             ?>
             <div class="form-check">
