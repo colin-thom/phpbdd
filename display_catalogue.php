@@ -1,5 +1,5 @@
 <?php
-include_once 'catalogue.php';
+include_once 'Catalogue.php';
 ?>
 <!doctype html>
 <html lang="en">

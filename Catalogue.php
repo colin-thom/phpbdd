@@ -22,11 +22,10 @@ class Catalogue
     public function __construct()
     {
         try {
-            $bdd = new PDO('mysql:host=212.47.253.220;dbname=thomas_db', 'thomas', 'vx3wcejfb');
+            $bdd = new PDO('mysql:host=127.0.0.1;dbname=thomas_db', 'thomas', 'vx3wcejfb');
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-        $bdd = new PDO('mysql:host=212.47.253.220;dbname=thomas_db', 'thomas', 'vx3wcejfb');
         $req = $bdd->query('SELECT * from products');
         while ($donnees = $req->fetch()) {
             if ($donnees['category_id'] != 2) {
